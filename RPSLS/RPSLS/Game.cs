@@ -18,6 +18,8 @@ namespace RPSLS
         {
             choices = new Choices();
             player1 = new Human();
+
+            
         }
 
 
@@ -73,7 +75,7 @@ namespace RPSLS
         }
         public void Player1Turn()
         {
-            player1Play = Selection();
+            player1Play = player1.ChooseGesture();
             
         }
 
@@ -81,9 +83,12 @@ namespace RPSLS
         {
             // if player 2 is human then
             // player2play = selection90;
-            Random rand = new Random();
-            int temp = rand.Next(4);
-            player2Play = choices.playOptions[temp];
+            //Random rand = new Random();
+            //int temp = rand.Next(4);
+            //player2Play = choices.playOptions[temp];
+
+            player2Play = player2.ChooseGesture();
+           
             
         }
 
