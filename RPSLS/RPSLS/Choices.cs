@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 
 namespace RPSLS
-{
+{ 
     public class Choices
     {
-        List<string> options;
+        public int selection;
+        public List<string> playOptions;
         public Choices()
         {
-            options = new List<string>();
-            options.Add("Rock");
-            options.Add("Paper");
-            options.Add("Scissors");
-            options.Add("Lizard");
-            options.Add("Spock");
+        
+            playOptions = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+            
+        }
+
+        public void SelectPlay()
+        {
+            Console.WriteLine("Please Select your play for this round");
+            for (int i = 0; i < playOptions.Count; i++)
+            {
+                Console.WriteLine(i + " " + playOptions[i]);
+                selection = Convert.ToInt32(Console.ReadLine());
+
+            }
         }
     }
 }
