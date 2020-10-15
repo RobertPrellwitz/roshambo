@@ -24,25 +24,36 @@ namespace RPSLS
             //Console.Clear();
             Console.WriteLine("Do you want to play a game against the computer or a friend");
             Console.WriteLine("Enter 1 for Single Player Mode and 2 for Two player mode");
-            int temp = Convert.ToInt32(Console.ReadLine());
-            if (temp == 1)
+            int temp;
+            bool check = Int32.TryParse(Console.ReadLine(),out temp);
+            if (check)
             {
-                Console.WriteLine("You have selected Single Player, Good Luck!");
-                player2 = new Computer();
-                return player2;
-            }
-            else if (temp == 2)
-            {
-                Console.WriteLine("You have selected multi-player mode, Good Luck Puny Humans!");
-                player2 = new Human();
-                return player2;
+                if (temp == 1)
+                {
+                    Console.WriteLine("You have selected Single Player, Good Luck!");
+                    player2 = new Computer();
+                    return player2;
+                }
+                else if (temp == 2)
+                {
+                    Console.WriteLine("You have selected multi-player mode, Good Luck Puny Humans!");
+                    player2 = new Human();
+                    return player2;
+                }
+                else
+                {
+                    Console.WriteLine("You did not make a valid selection of '1' or '2', try again");
+                    PlayerType();
+                    return null;
+
+                }
             }
             else
             {
                 Console.WriteLine("You did not make a valid selection of '1' or '2', try again");
                 PlayerType();
                 return null;
-                PlayerType(); /// how to start PlayerType over if no valid selection??
+                
             }
 
         }
@@ -51,8 +62,17 @@ namespace RPSLS
             Console.WriteLine("The game is generally best of three, however you can choose any option you\n" +
                 "would like. For example best of 7 would require a player to win 4 rounds.  Please input any \n" +
                 "integer you would like to customize your game.");
-            gameLength = Convert.ToInt32(Console.ReadLine());
-            return gameLength;
+           // gameLength = Convert.ToInt32(Console.ReadLine());
+            bool check = Int32.TryParse(Console.ReadLine(), out gameLength);
+            if (check)
+            {
+                return gameLength;
+            }
+            else
+            {
+                return GameLength();
+                //return null;
+            }
         }
         //public void GetPlayerName()
         //{
