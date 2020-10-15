@@ -11,32 +11,29 @@ namespace RPSLS
         public Player player2;
         public string player1Play;
         public string player2Play;
-        public int player1Score;
-        public int player2Score;
-
+        public int gameLength;
+        
         public Game()
         {
             choices = new Choices();
-            player1 = new Human();
-
-            
+            player1 = new Human();   
         }
-
 
         public Player PlayerType()
         {
-            Console.Clear();
-            Console.WriteLine("Do you want to play a game against the player1 or a friend");
+            //Console.Clear();
+            Console.WriteLine("Do you want to play a game against the computer or a friend");
             Console.WriteLine("Enter 1 for Single Player Mode and 2 for Two player mode");
             int temp = Convert.ToInt32(Console.ReadLine());
             if (temp == 1)
             {
-                Console.WriteLine("You have selected Single Player, Good Luck");
+                Console.WriteLine("You have selected Single Player, Good Luck!");
                 player2 = new Computer();
                 return player2;
             }
             else if (temp == 2)
             {
+                Console.WriteLine("You have selected multi-player mode, Good Luck Puny Humans!");
                 player2 = new Human();
                 return player2;
             }
@@ -49,15 +46,23 @@ namespace RPSLS
             }
 
         }
-        public void GetPlayerName()
+        public int GameLength()
         {
-            Console.WriteLine("please Enter your name");
-
-            //player1.name = Console.ReadLine();
-
-            //if (player2 == Human) {
-            //Player.player2.name = Console.ReadLine}
+            Console.WriteLine("The game is generally best of three, however you can choose any option you\n" +
+                "would like. For example best of 7 would require a player to win 4 rounds.  Please input any \n" +
+                "integer you would like to customize your game.");
+            gameLength = Convert.ToInt32(Console.ReadLine());
+            return gameLength;
         }
+        //public void GetPlayerName()
+        //{
+        //    Console.WriteLine("please Enter your name");
+
+        //    //player1.name = Console.ReadLine();
+
+        //    //if (player2 == Human) {
+        //    //Player.player2.name = Console.ReadLine}
+        //}
 
         public string Selection()
         {
@@ -97,46 +102,46 @@ namespace RPSLS
         public void Comparison()
 
         {
-            Console.WriteLine("player 1 plays " + player1Play);
-            Console.WriteLine("player 2 plays" + player2Play);
+            Console.WriteLine($"{player1.name} plays {player1Play} ");
+            Console.WriteLine($"{player2.name} plays {player2Play} ");
 
             if (player1Play == player2Play)
             {
                 Console.WriteLine("its a tie");
             }
             else if (player1Play == "Rock" & (player2Play == "Scissors" || player2Play == "Lizard")) {
-                Console.WriteLine("player1 wins\n");
-                player1Score = player1Score + 1;
+                Console.WriteLine($"{player1.name} wins\n");
+                player1.score = player1.score + 1;
             }
 
             else if (player1Play == "Scissors" & (player2Play == "Paper" || player2Play == "Lizard"))
             {
-                Console.WriteLine("player1 wins\n");
-                player1Score = player1Score + 1;
+                Console.WriteLine($"{player1.name} wins\n");
+                player1.score = player1.score + 1;
 
             }
             else if (player1Play == "Paper" & (player2Play == "Rock" || player2Play == "Spock"))
             {
-                Console.WriteLine("player1 wins\n");
-                player1Score = player1Score + 1;
+                Console.WriteLine($"{player1.name} wins\n");
+                player1.score = player1.score + 1;
 
             }
             else if (player1Play == "Lizard" & (player2Play == "Paper" || player2Play == "Spock"))
             {
-                Console.WriteLine("player1 wins\n");
-                player1Score = player1Score + 1;
+                Console.WriteLine($"{player1.name} wins\n");
+                player1.score = player1.score + 1;
             }
             else if (player1Play == "Spock" & (player2Play == "Scissors" || player2Play == "Rock"))
             {
-                Console.WriteLine("player1 wins\n");
-                player1Score = player1Score + 1;
+                Console.WriteLine($"{player1.name} wins\n");
+                player1.score = player1.score + 1;
             }
             else
             {
-                Console.WriteLine(player2 + " Wins\n");
-                player2Score = player2Score + 1;
+                Console.WriteLine($"{player2.name} wins\n");
+                player2.score = player2.score + 1;
             }
-            //if (player1Score > player2Score)
+            //if (player1.score > player2.score)
             //{
             //    Console.WriteLine(player1 + "wins");
             //}
@@ -148,9 +153,11 @@ namespace RPSLS
         }
         public void RunGame()
         {
-            while(player1Score<3 & player2Score < 3)
+            player1.SetName();
+            player2.SetName();
+            while(player1.score < (gameLength/2+1) & player2.score < (gameLength / 2 + 1))
             {
-                if (player1Score==3 || player2Score == 3)
+                if (player1.score== (gameLength / 2 + 1) || player2.score == (gameLength / 2 + 1))
                 {
                     break;
                 }
@@ -158,8 +165,15 @@ namespace RPSLS
                 Player2Turn();
                 Comparison();
             }
-
+            if (player1.score > player2.score) {
+                Console.WriteLine($"{player1.name} wins the game!");
+            }
+            else
+            {
+                Console.WriteLine($"{player2.name} wins the game!");
+            }
         }
+       
 
 
     }

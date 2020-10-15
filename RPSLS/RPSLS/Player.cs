@@ -46,7 +46,18 @@ namespace RPSLS
 
             }
             int temp = Convert.ToInt32(Console.ReadLine());
-            string gesture = choices.playOptions[temp];
+
+            if (temp >= 0 && temp <= 4)
+            {
+                string gesture = choices.playOptions[temp];
+            }
+            else { 
+                Console.WriteLine("that is an invalid selection - please use and integer from 0 - 4");
+                    ChooseGesture();
+                 
+            }
+         
+            //string gesture = choices.playOptions[temp];
             return gesture;
         }
     }
@@ -59,7 +70,7 @@ namespace RPSLS
         }
         public override void SetName()
         {
-            name = "Computer";
+            name = "AMD Ryzen 9";
         }
         public override string ChooseGesture()
         {
