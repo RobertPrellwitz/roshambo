@@ -98,7 +98,7 @@ namespace RPSLS
 
             if (player1Play == player2Play)
             {
-                Console.WriteLine("its a tie");
+                Console.WriteLine("its a tie\n");
             }
             else if (player1Play == "Rock" & (player2Play == "Scissors" || player2Play == "Lizard")) {
                 Console.WriteLine($"{player1.name} wins\n");

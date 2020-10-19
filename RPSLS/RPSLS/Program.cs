@@ -9,7 +9,6 @@ namespace RPSLS
         static void Main(string[] args)
         {
             Console.Clear();
-           // Console.BackgroundColor{ get }
 
             // welcome amd game explanation
             Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizzard, Spock");
