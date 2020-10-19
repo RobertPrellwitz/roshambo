@@ -57,12 +57,12 @@ namespace RPSLS
             }
 
         }
-        public int GameLength()
+        public int GameLength()  // can also run as void and eliminte the returns return null doesn't work
         {
             Console.WriteLine("The game is generally best of three, however you can choose any option you\n" +
                 "would like. For example best of 7 would require a player to win 4 rounds.  Please input any \n" +
                 "integer you would like to customize your game.");
-           // gameLength = Convert.ToInt32(Console.ReadLine());
+          
             bool check = Int32.TryParse(Console.ReadLine(), out gameLength);
             if (check)
             {
@@ -74,16 +74,7 @@ namespace RPSLS
                 //return null;
             }
         }
-        //public void GetPlayerName()
-        //{
-        //    Console.WriteLine("please Enter your name");
-
-        //    //player1.name = Console.ReadLine();
-
-        //    //if (player2 == Human) {
-        //    //Player.player2.name = Console.ReadLine}
-        //}
-
+        
         public string Selection()
         {
            // Console.Clear();
@@ -93,9 +84,18 @@ namespace RPSLS
                 Console.WriteLine(i + " " + choices.playOptions[i]);
 
             }
-            int temp = Convert.ToInt32(Console.ReadLine());
-            string word = choices.playOptions[temp];
-            return word;
+            int temp;
+            bool check = Int32.TryParse(Console.ReadLine(), out temp);
+            if (check)
+            {
+                //int temp = Convert.ToInt32(Console.ReadLine());
+                string word = choices.playOptions[temp];
+                return word;
+            }
+            else
+            {
+                return Selection();
+            }
 
         }
         public void Player1Turn()
