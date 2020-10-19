@@ -14,15 +14,15 @@ namespace RPSLS
             
         }
 
-        public void SelectPlay()
-        {
-            Console.WriteLine("Please Select your play for this round");
-            for (int i = 0; i < playOptions.Count; i++)
-            {
-                Console.WriteLine(i + " " + playOptions[i]);
-                selection = Convert.ToInt32(Console.ReadLine());
+        //public void SelectPlay()
+        //{
+        //    Console.WriteLine("Please Select your play for this round");
+        //    for (int i = 0; i < playOptions.Count; i++)
+        //    {
+        //        Console.WriteLine(i + " " + playOptions[i]);
+        //        selection = Convert.ToInt32(Console.ReadLine());
 
-            }
-        }
+        //    }
+        //}
     }
 }

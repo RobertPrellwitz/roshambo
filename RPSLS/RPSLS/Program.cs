@@ -18,9 +18,6 @@ namespace RPSLS
                 "\nSpock smashes Scissors\nScissors decapitates Lizard\n"+
                 "Lizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock\n"+
                 "(and as it always has!) \nRock crushes Scissors");
-
-
-            // select one or two player
            
 
             Game play = new Game();
