@@ -75,28 +75,6 @@ namespace RPSLS
             }
         }
         
-        public string Selection()
-        {
-           // Console.Clear();
-            Console.WriteLine("Please Select your play for this round");
-            for (int i = 0; i < choices.playOptions.Count; i++)
-            {
-                Console.WriteLine(i + " " + choices.playOptions[i]);
-
-            }
-            int temp;
-            bool check = Int32.TryParse(Console.ReadLine(), out temp);
-            if (check)
-            {
-                string word = choices.playOptions[temp];
-                return word;
-            }
-            else
-            {
-                return Selection();
-            }
-
-        }
         public void Player1Turn()
         {
             player1Play = player1.ChooseGesture();
@@ -193,8 +171,6 @@ namespace RPSLS
                 {
 
                     case 1:
-                        //player1.score = 0;
-                        //player2.score = 0;
                         RunGame();
                         break;
                     case 2:
