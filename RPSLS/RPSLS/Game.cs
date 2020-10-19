@@ -57,7 +57,7 @@ namespace RPSLS
             }
 
         }
-        public int GameLength()  // can also run as void and eliminte the returns return null doesn't work
+        public int GameLength()  // can also run as void and eliminte the return null doesn't work
         {
             Console.WriteLine("The game is generally best of three, however you can choose any option you\n" +
                 "would like. For example best of 7 would require a player to win 4 rounds.  Please input any \n" +
@@ -71,7 +71,7 @@ namespace RPSLS
             else
             {
                 return GameLength();
-                //return null;
+               
             }
         }
         
@@ -88,7 +88,6 @@ namespace RPSLS
             bool check = Int32.TryParse(Console.ReadLine(), out temp);
             if (check)
             {
-                //int temp = Convert.ToInt32(Console.ReadLine());
                 string word = choices.playOptions[temp];
                 return word;
             }
@@ -106,14 +105,8 @@ namespace RPSLS
 
         public void Player2Turn()
         {
-            // if player 2 is human then
-            // player2play = selection90;
-            //Random rand = new Random();
-            //int temp = rand.Next(4);
-            //player2Play = choices.playOptions[temp];
-
+            
             player2Play = player2.ChooseGesture();
-           
             
         }
 
@@ -161,15 +154,7 @@ namespace RPSLS
                 Console.WriteLine($"{player2.name} wins\n");
                 player2.score = player2.score + 1;
             }
-            //if (player1.score > player2.score)
-            //{
-            //    Console.WriteLine(player1 + "wins");
-            //}
-            //else
-            //{
-            //    Console.WriteLine(player2 + "wins");
-            //}
-          
+                      
         }
         public void RunGame()
         {

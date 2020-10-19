@@ -61,10 +61,6 @@ namespace RPSLS
                     "Please try selecting from the list again.");
                 return ChooseGesture();
             }
-
-            //string gesture = choices.playOptions[temp];
-            
-            //return gesture;
         }
     }
 
