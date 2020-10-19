@@ -34,7 +34,7 @@ namespace RPSLS
 
         public override void SetName()
         {
-            Console.WriteLine("Please eneter in your name human!");
+            Console.WriteLine("Please enter in your name");
             name = Console.ReadLine();
         }
         public override string ChooseGesture()

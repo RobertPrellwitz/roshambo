@@ -159,7 +159,7 @@ namespace RPSLS
         }
 
         public void ReplayGame() { 
-            Console.WriteLine("Would you like to play the game again?\n 1. for replay same game \n" +
+            Console.WriteLine("Would you like to play the game again?\n1. for replay same game \n" +
                 "2. To play again but change settings \n3. To exit");
             int replay;
             bool check = Int32.TryParse(Console.ReadLine(), out replay);
