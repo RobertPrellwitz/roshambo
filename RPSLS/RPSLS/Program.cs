@@ -8,7 +8,6 @@ namespace RPSLS
         
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
             Console.Clear();
            // Console.BackgroundColor{ get }
 

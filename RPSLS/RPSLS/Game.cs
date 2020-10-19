@@ -61,7 +61,7 @@ namespace RPSLS
         {
             Console.WriteLine("The game is generally best of three, however you can choose any option you\n" +
                 "would like. For example best of 7 would require a player to win 4 rounds.  Please input any \n" +
-                "integer you would like to customize your game.");
+                "integer 3 or greater you would like to customize your game.");
           
             bool check = Int32.TryParse(Console.ReadLine(), out gameLength);
             if (check)
@@ -160,9 +160,9 @@ namespace RPSLS
         {
             player1.SetName();
             player2.SetName();
-            while(player1.score < (gameLength/2+1) & player2.score < (gameLength / 2 + 1))
+            while (player1.score < (gameLength / 2 + 1) & player2.score < (gameLength / 2 + 1))
             {
-                if (player1.score== (gameLength / 2 + 1) || player2.score == (gameLength / 2 + 1))
+                if (player1.score == (gameLength / 2 + 1) || player2.score == (gameLength / 2 + 1))
                 {
                     break;
                 }
@@ -177,10 +177,53 @@ namespace RPSLS
             {
                 Console.WriteLine($"{player2.name} wins the game!");
             }
+            ReplayGame();
         }
-       
 
+        public void ReplayGame() { 
+            Console.WriteLine("Would you like to play the game again?\n 1. for replay same game \n" +
+                "2. To play again but change settings \n3. To exit");
+            int replay;
+            bool check = Int32.TryParse(Console.ReadLine(), out replay);
+            if (check)
+            {
+                player1.score = 0;
+                player2.score = 0;
+                switch (replay)
+                {
 
+                    case 1:
+                        //player1.score = 0;
+                        //player2.score = 0;
+                        RunGame();
+                        break;
+                    case 2:
+                        PlayerType();
+                        GameLength();
+                        RunGame();
+                        break;
+                    case 3:
+                        Console.WriteLine("Thanks for playing, enjoy your day.");
+                        break;
+                    default:
+                        Console.WriteLine("That was not a valid selection, please try again.\n");
+                        ReplayGame();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("You inadvertently selected an incorrect play! \n" +
+                    "Please try selecting from the list again.");
+                ReplayGame();
+            }
+           
+
+            }
+
+            
+                
+        
     }
 }
 		
